@@ -6,7 +6,7 @@ class CreateRentals < ActiveRecord::Migration
       t.integer :room_id
       t.time :rent_time
       t.time :return_time
-      t.timestamps null: false
+      t.timestamps
     end
   end
 end
