@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  resources :rentals, only: :index
+  root 'rentals#index'
+  resources :rentals, only: [:index, :new]
 end
