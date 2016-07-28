@@ -1,32 +1,36 @@
-<h2>新規投稿</h2>
-<form>
-  <label>時間
-    <input type="time" name="time">
-  </label>
-  <br />
-  <label>部屋
-  <select>
-    <option value="bushitu">部室</option>
-    <option value="on1">音1</option>
-    <option value="on2">音2</option>
-    <option value="on3">音3</option>
-    <option value="on4">音4</option>
-    <option value="on5">音5</option>
-    <option value="on6">音6</option>
-    <option value="goa">合A</option>
-    <option value="gob">合B</option>
-    <option value="goc">合C</option>
-    <option value="god">合D</option>
-    <option value="goe">合E</option>
-  </select>
-  </label>
-  <br />
-  <label>用途
+<div class="contents">
+  <h2>新規投稿</h2>
+  <form>
+    <label>時間
+      <input type="time" name="time">
+    </label>
+    <br />
+    <label>部屋
     <select>
-      <option value="rent">貸出</option>
-      <option value="return">返却</option>
-      <option value="sashikae">差し替え</option>
+      <option value="bushitu">部室</option>
+      <option value="on1">音1</option>
+      <option value="on2">音2</option>
+      <option value="on3">音3</option>
+      <option value="on4">音4</option>
+      <option value="on5">音5</option>
+      <option value="on6">音6</option>
+      <option value="goa">合A</option>
+      <option value="gob">合B</option>
+      <option value="goc">合C</option>
+      <option value="god">合D</option>
+      <option value="goe">合E</option>
     </select>
-  </label>
-</form>
-<%= link_to "一覧へ戻る", root_path %>
+    </label>
+    <br />
+    <label>用途
+      <select>
+        <option value="rent">貸出</option>
+        <option value="return">返却</option>
+        <option value="sashikae">差し替え</option>
+      </select>
+    </label>
+    <br />
+    <input type="submit" value="確定">
+  </form>
+  <%= link_to "一覧へ戻る", root_path %>
+</div>
