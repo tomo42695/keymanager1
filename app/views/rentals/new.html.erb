@@ -1,36 +1,36 @@
 <div class="contents">
   <h2>新規投稿</h2>
-  <form>
-    <label>時間
-      <input type="time" name="time">
-    </label>
-    <br />
-    <label>部屋
-    <select>
-      <option value="bushitu">部室</option>
-      <option value="on1">音1</option>
-      <option value="on2">音2</option>
-      <option value="on3">音3</option>
-      <option value="on4">音4</option>
-      <option value="on5">音5</option>
-      <option value="on6">音6</option>
-      <option value="goa">合A</option>
-      <option value="gob">合B</option>
-      <option value="goc">合C</option>
-      <option value="god">合D</option>
-      <option value="goe">合E</option>
-    </select>
-    </label>
-    <br />
-    <label>用途
-      <select>
-        <option value="rent">貸出</option>
-        <option value="return">返却</option>
-        <option value="sashikae">差し替え</option>
-      </select>
-    </label>
-    <br />
-    <input type="submit" value="確定">
-  </form>
-  <%= link_to "一覧へ戻る", root_path %>
+  <%= form_for @rental do |f| %>
+    <div style="margin: 8px 0">
+      <%= f.label "部屋", style: { 'margin-right' => 8 } %>
+      <%= f.select :room_id, [["音1", "0"], ["音2", "1"], ["音3", "2"], ["音4", "3"], ["音5", "4"], ["音6", "5"], ["合A", "6"], ["合B", "7"], ["合C", "8"], ["合D", "9"], ["合E", "10"], ["集1", "11"], ["集2", "12"]] %>
+    </div>
+
+    <div class="action_id">
+      <%= f.label "用途", style: { 'margin-right' => 8 } %>
+      <%= f.select :door_state, [["貸出", "0"], ["返却", "1"], ["差し替え", "2"]] %>
+    </div>
+
+      <div class="open_close">
+        <div style="margin: 8px 0" class="time door_state_0 selected" >
+          <%= f.label "時間", style: { 'margin-right' => 8 } %>
+          <%= f.time_field :rent_time %>
+        </div>
+
+        <div style="margin: 8px 0" class="time door_state_1">
+          <%= f.label "時間", style: { 'margin-right' => 8 } %>
+          <%= f.time_field :return_time %>
+        </div>
+
+        <div style="margin: 8px 0" class="time door_state_2">
+          <%= f.label "時間", style: { 'margin-right' => 8 } %>
+          <%= f.time_field :return_time %>
+
+          <%= f.label "団体名", style: { 'margin-right' => 8 } %>
+          <%= f.text_field :groupname %>
+        </div>
+      </div>
+    <%= f.submit "送信", class: "btn btn-primary withripple" %>
+  <% end %>
+<%= link_to "一覧へ戻る", root_path %>
 </div>
