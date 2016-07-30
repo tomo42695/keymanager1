@@ -28,6 +28,10 @@ class RentalsController < ApplicationController
     @rental = Rental.find(params[:id])
   end
 
+  def returning
+    @rental = Rental.find(params[:id])
+  end
+
   def update
     rental = Rental.find(params[:id])
     if rental.user_id == current_user.id

@@ -9,6 +9,7 @@
         <th>部屋名</th>
         <th>貸し出し時間</th>
         <th>返却/差し替え時間</th>
+        <th>差し替え先（差し替えの場合のみ）</th>
         <th>動画</th>
         <th>編集・削除</th>
       </tr>
@@ -18,7 +19,14 @@
             <td><%= rental.user.last_name + rental.user.first_name %></td>
             <td><%= @rentals_name[num] %></td>
             <td><%= rental.show_rent_time %></td>
-            <td><%= rental.show_return_time %></td >
+            <td><%= rental.show_return_time %>
+              <% if user_signed_in? && current_user.id == rental.user_id %>
+                <% unless rental.return_time %>
+                  <%= link_to '返却', "/rentals/#{rental.id}/returning", method: :get %>
+                <% end %>
+              <% end %>
+            </td >
+            <td><%= rental.show_groupname %></td>
             <td>未提出</td>
             <td>
             <% if user_signed_in? && current_user.id == rental.user_id %>

@@ -21,4 +21,12 @@ class Rental < ActiveRecord::Base
   def show_date
     "#{created_at.strftime("%-m月%-d日")}"
   end
+
+  def show_groupname
+    unless groupname
+      return ""
+    else
+      "#{groupname}"
+    end
+  end
 end
