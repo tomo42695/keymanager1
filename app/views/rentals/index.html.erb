@@ -12,18 +12,18 @@
         <th>動画</th>
         <th>編集・削除</th>
       </tr>
-        <% @rentals.each do |rental| %>
+        <% @rentals.each_with_index do |rental, num| %>
           <tr>
             <td><%= rental.show_date %></td>
             <td><%= rental.user.last_name + rental.user.first_name %></td>
-            <td><%= rental.room_id %></td>
+            <td><%= @rentals_name[num] %></td>
             <td><%= rental.show_rent_time %></td>
             <td><%= rental.show_return_time %></td >
             <td>未提出</td>
             <td>
             <% if user_signed_in? && current_user.id == rental.user_id %>
-            <%= link_to '削除', "/rentals/#{rental.id}", method: :delete %>
-            <%= link_to '編集', "/rentals/#{rental.id}/edit", method: :get %>
+              <%= link_to '削除', "/rentals/#{rental.id}", method: :delete %>
+              <%= link_to '編集', "/rentals/#{rental.id}/edit", method: :get %>
             <% end %>
             </td>
           </tr>

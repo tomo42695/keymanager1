@@ -1,6 +1,12 @@
 class RentalsController < ApplicationController
   def index
-    @rentals = Rental.all
+    @rentals = Rental.all.order(created_at: :desc)
+    @rentals_name = []
+    @rentals.each do |rental|
+      room_id = rental.room_id
+      room_name = Room.find(room_id).room_name
+      @rentals_name << room_name
+    end
   end
 
   def new
