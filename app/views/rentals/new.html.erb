@@ -24,6 +24,7 @@ window.name = "";
     </div>
 
       <div class="open_close">
+
         <div style="margin: 8px 0" class="time door_state_0 selected" >
           <%= f.label "時間", style: { 'margin-right' => 8 } %>
           <%= f.time_field :rent_time %>
@@ -35,9 +36,6 @@ window.name = "";
         </div>
 
         <div style="margin: 8px 0" class="time door_state_2">
-          <%= f.label "時間", style: { 'margin-right' => 8 } %>
-          <%= f.time_field :return_time %>
-
           <%= f.label "団体名", style: { 'margin-right' => 8 } %>
           <%= f.text_field :groupname %>
         </div>

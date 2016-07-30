@@ -1,7 +1,6 @@
 class RentalsController < ApplicationController
   def index
-    # @rental = Rental.find(params[:id])
-    # @user = User.find(params[:id])
+    @rentals = Rental.all
   end
 
   def new
@@ -9,8 +8,15 @@ class RentalsController < ApplicationController
   end
 
   def create
-    Rental.create(create_params)
+    rental = Rental.create(create_params)
   end
+
+    def destroy
+      rental = Rental.find(params[:id])
+      if rental.user_id == current_user.id
+        rental.destroy
+      end
+    end
 
   private
   def create_params

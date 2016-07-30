@@ -10,22 +10,23 @@
         <th>貸し出し時間</th>
         <th>返却/差し替え時間</th>
         <th>動画</th>
+        <th>編集・削除</th>
       </tr>
-      <tr>
-        <th rowspan="2">7月25日</th>
-        <td>岩井智夢</td>
-        <td>合D</td>
-        <td>11:34</td>
-        <td>15:56</td>
-        <td>未提出</td>
-      </tr>
-      <tr>
-        <td>宮南有希</td>
-        <td>音1</td>
-        <td>15:23</td>
-        <td>18:34</td>
-        <td>閲覧</td>
-      </tr>
+        <% @rentals.each do |rental| %>
+          <tr>
+            <td><%= rental.show_date %></td>
+            <td><%= rental.user.last_name + rental.user.first_name %></td>
+            <td><%= rental.room_id %></td>
+            <td><%= rental.show_rent_time %></td>
+            <td><%= rental.show_return_time %></td >
+            <td>未提出</td>
+            <td>
+            <% if user_signed_in? && current_user.id == rental.user_id %>
+            <%= link_to '削除', "/rentals/#{rental.id}", method: :delete %>
+            <% end %>
+            </td>
+          </tr>
+        <% end %>
     </table>
   </div>
 </div>

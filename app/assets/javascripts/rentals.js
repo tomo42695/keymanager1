@@ -13,6 +13,7 @@ $(window).on("load", function() {
       } else if (selectVal == 2){
         $(".door_state_2").addClass("selected");
         $(".open_class div").hide();
+        $(".door_state_1").show();
         $(".door_state_2").show();
       }
   });
