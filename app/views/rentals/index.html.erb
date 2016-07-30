@@ -23,6 +23,7 @@
             <td>
             <% if user_signed_in? && current_user.id == rental.user_id %>
             <%= link_to '削除', "/rentals/#{rental.id}", method: :delete %>
+            <%= link_to '編集', "/rentals/#{rental.id}/edit", method: :get %>
             <% end %>
             </td>
           </tr>
