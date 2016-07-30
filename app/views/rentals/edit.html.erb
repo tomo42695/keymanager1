@@ -2,7 +2,7 @@
   <%= form_for @rental do |f| %>
     <div style="margin: 8px 0">
       <%= f.label "部屋", style: { 'margin-right' => 8 } %>
-      <%= f.select :room_id, [["音1", "1"], ["音2", "2"], ["音3", "3"], ["音4", "4"], ["音5", "5"], ["音6", "6"], ["合A", "7"], ["合B", "8"], ["合C", "9"], ["合D", "10"], ["合E", "11"], ["集1", "12"], ["集2", "13"]] %>
+      <%= f.select :room_id, [["部室", "1"], ["大ホール", "2"], ["音1", "3"], ["音2", "4"], ["音3", "5"], ["音4", "6"], ["音5", "7"], ["音6", "8"], ["合A", "9"], ["合B", "10"], ["合C", "11"], ["合D", "12"], ["合E", "13"], ["集1", "14"], ["集2", "15"]] %>
     </div>
 
       <div class="open_close">
@@ -21,6 +21,11 @@
           <%= f.label "団体名（差し替えの場合のみ記入）", style: { 'margin-right' => 8 } %>
           <%= f.text_field :groupname %>
         </div>
+      </div>
+
+      <div class="field" style="margin: 8px 0">
+        <%= f.label "動画" %>
+        <%= f.file_field :video, :accept => 'video/*' %>
       </div>
 
     <%= f.submit "送信", class: "btn btn-primary withripple" %>

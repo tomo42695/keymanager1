@@ -1,4 +1,5 @@
 <div class="contents">
+<h2>返却</h2>
   <%= form_for @rental do |f| %>
         <div style="margin: 8px 0">
           <%= f.label "返却・差し替え時間", style: { 'margin-right' => 8 } %>
@@ -9,6 +10,10 @@
           <%= f.label "団体名（差し替えの場合のみ記入）", style: { 'margin-right' => 8 } %>
           <%= f.text_field :groupname %>
         </div>
+
+       <div class="field">
+        <%= f.label "動画" %>
+        <%= f.file_field :video, :accept => 'video/*' %>
       </div>
 
     <%= f.submit "送信", class: "btn btn-primary withripple" %>

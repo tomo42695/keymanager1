@@ -11,17 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160730063848) do
+ActiveRecord::Schema.define(version: 20160730082600) do
 
   create_table "rentals", force: :cascade do |t|
     t.integer  "user_id",     limit: 4
-    t.integer  "door_state",  limit: 4
+    t.boolean  "door_state"
     t.integer  "room_id",     limit: 4
     t.time     "rent_time"
     t.time     "return_time"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "groupname",   limit: 255
+    t.text     "video",       limit: 65535
   end
 
   create_table "rooms", force: :cascade do |t|

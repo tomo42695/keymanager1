@@ -2,6 +2,7 @@ class Rental < ActiveRecord::Base
   belongs_to :user
   belongs_to :room
   validates_presence_of :user_id, :room_id, :door_state
+  mount_uploader :video, VideoUploader
   def show_rent_time
     unless rent_time
       return "未登録"
@@ -28,5 +29,8 @@ class Rental < ActiveRecord::Base
     else
       "#{groupname}"
     end
+  end
+
+  def show_video
   end
 end

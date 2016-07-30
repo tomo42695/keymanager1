@@ -1,5 +1,7 @@
 <div class="contents">
-  <%= link_to "新規投稿", new_rental_path %>
+  <% unless user_signed_in? %>
+  <p>ログインしていませんので、投稿できません</p>
+  <% end %>
   <div class="table">
     <table>
     <caption><h3>鍵貸し出し状況</h3></caption>
@@ -9,7 +11,7 @@
         <th>部屋名</th>
         <th>貸し出し時間</th>
         <th>返却/差し替え時間</th>
-        <th>差し替え先（差し替えの場合のみ）</th>
+        <th>団体名（差し替え時）</th>
         <th>動画</th>
         <th>編集・削除</th>
       </tr>
@@ -27,7 +29,7 @@
               <% end %>
             </td >
             <td><%= rental.show_groupname %></td>
-            <td>未提出</td>
+            <td></td>
             <td>
             <% if user_signed_in? && current_user.id == rental.user_id %>
               <%= link_to '削除', "/rentals/#{rental.id}", method: :delete %>
