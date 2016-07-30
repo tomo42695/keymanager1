@@ -51,5 +51,6 @@ group :development do
   gem "less-rails"
   gem 'therubyracer'
   gem 'carrierwave'
+  gem 'flowplayer', git: 'git://github.com/scottdavis/flowplayer-gem.git'
 end
 

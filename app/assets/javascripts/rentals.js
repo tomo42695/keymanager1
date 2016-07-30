@@ -4,15 +4,15 @@ $(window).on("load", function() {
       $(".selected").removeClass("selected");
       if (selectVal == 0){
         $(".door_state_0").addClass("selected");
-        $(".open_class div").hide();
+        $(".open_close div").hide();
         $(".door_state_0").show();
       } else if (selectVal == 1){
         $(".door_state_1").addClass("selected");
-        $(".open_class div").hide();
+        $(".open_close div").hide();
         $(".door_state_1").show();
       } else if (selectVal == 2){
         $(".door_state_2").addClass("selected");
-        $(".open_class div").hide();
+        $(".open_close div").hide();
         $(".door_state_1").show();
         $(".door_state_2").show();
       }

@@ -29,7 +29,15 @@
               <% end %>
             </td >
             <td><%= rental.show_groupname %></td>
-            <td></td>
+            <td>
+              <%= link_to :video, rental.video_url.to_s, id: "video" %>
+              <%= flowplayer_for :video, '/flowplayer.swf' do |player|
+                player.playlist [{:autoplay => true,
+                                  :autoBuffering => true}]
+                player.onload do
+                  'this.unmute();'
+                end
+              end%></td>
             <td>
             <% if user_signed_in? && current_user.id == rental.user_id %>
               <%= link_to '削除', "/rentals/#{rental.id}", method: :delete %>

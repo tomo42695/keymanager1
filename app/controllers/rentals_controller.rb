@@ -14,7 +14,7 @@ class RentalsController < ApplicationController
   end
 
   def create
-    rental = Rental.create(create_params)
+     Rental.create(create_params)
   end
 
   def destroy
@@ -45,7 +45,6 @@ class RentalsController < ApplicationController
     params.require(:rental).permit(:room_id, :door_state, :rent_time, :return_time, :groupname, :video).merge(user_id: current_user.id)
   end
 
-  private
   def rental_params
     params.require(:rental).permit(:room_id, :door_state, :rent_time, :return_time, :groupname, :video)
   end

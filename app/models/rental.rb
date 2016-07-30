@@ -30,7 +30,4 @@ class Rental < ActiveRecord::Base
       "#{groupname}"
     end
   end
-
-  def show_video
-  end
 end
