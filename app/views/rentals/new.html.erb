@@ -1,50 +1,15 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script language="JavaScript">
-$(document).ready( function(){
-if (window.name != "test") {
-location.reload();
-window.name = "test";
-} else {
-window.name = "";
-}
-});
-</script>
-
 <div class="contents">
   <h2>新規投稿</h2>
   <%= form_for @rental do |f| %>
     <div style="margin: 8px 0">
-      <%= f.label "部屋", style: { 'margin-right' => 8 } %>
-      <%= f.select :room_id, [["部室", "1"], ["音1", "2"], ["音2", "3"], ["音3", "4"], ["音4", "5"], ["音5", "6"], ["音6", "7"], ["合A", "8"], ["合B", "9"], ["合C", "10"], ["合D", "11"], ["合E", "12"], ["集1", "13"], ["集2", "14"]] %>
+      <%= f.label "部屋"%>
+      <%= f.select :room_id, [["部室", "1"], ["音1", "2"], ["音2", "3"], ["音3", "4"], ["音4", "5"], ["音5", "6"], ["音6", "7"], ["合A", "8"], ["合B", "9"], ["合C", "10"], ["合D", "11"], ["合E", "12"], ["集1", "13"], ["集2", "14"]], {}, class: "withripple", style: "border: 1px solid #ddd" %>
     </div>
 
-    <div class="action_id">
-      <%= f.label "用途", style: { 'margin-right' => 8 } %>
-      <%= f.select :door_state, [["貸出", "0"], ["返却", "1"], ["差し替え", "2"]] %>
-    </div>
-
-      <div class="open_close">
-
-        <div style="margin: 8px 0" class="time door_state_0 selected" >
-          <%= f.label "時間", style: { 'margin-right' => 8 } %>
-          <%= f.time_field :rent_time %>
+        <div style="margin: 8px 0;" class="time door_state_0 selected" >
+          <%= f.label "貸出時間", style: 'margin-right: 8'  %>
+          <%= f.time_field :rent_time, class: "btn btn-default withripple btn-sm" %>
         </div>
-
-        <div style="margin: 8px 0" class="time door_state_1">
-          <%= f.label "時間", style: { 'margin-right' => 8 } %>
-          <%= f.time_field :return_time %>
-        </div>
-
-        <div style="margin: 8px 0" class="time door_state_2">
-          <%= f.label "団体名", style: { 'margin-right' => 8 } %>
-          <%= f.text_field :groupname %>
-        </div>
-      </div>
-
-      <div class="field" style="margin: 8px 0">
-        <%= f.label "動画" %>
-        <%= f.file_field :video, :accept => 'video/*' %>
-      </div>
 
     <%= f.submit "送信", class: "btn btn-primary withripple" %>
   <% end %>

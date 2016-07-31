@@ -1,11 +1,11 @@
-<div class="contents">
   <% unless user_signed_in? %>
-  <p>ログインしていませんので、投稿できません</p>
+  <p>投稿するにはログインして下さい。</p>
   <% end %>
-  <div class="table">
-    <table>
+  <div class="table-responsive">
+    <table class="table">
     <caption><h3>鍵貸し出し状況</h3></caption>
-      <tr style="background:#ccccff">
+    <thead>
+      <tr style="background:#A7E9FF">
         <th>日付</th>
         <th>責任者</th>
         <th>部屋名</th>
@@ -15,8 +15,10 @@
         <th>動画</th>
         <th>編集・削除</th>
       </tr>
+    </thead>
+    <tbody>
         <% @rentals.each_with_index do |rental, num| %>
-          <tr>
+          <tr style="<%= 'background-color: #C2C3C4;' unless rental.return_time %>">
             <td><%= rental.show_date %></td>
             <td><%= rental.user.last_name + rental.user.first_name %></td>
             <td><%= @rentals_name[num] %></td>
@@ -24,13 +26,15 @@
             <td><%= rental.show_return_time %>
               <% if user_signed_in? && current_user.id == rental.user_id %>
                 <% unless rental.return_time %>
-                  <%= link_to '返却', "/rentals/#{rental.id}/returning", method: :get %>
+                  <div class="hennkyaku">
+                    <%= link_to '返却する', "/rentals/#{rental.id}/returning", method: :get, class: 'btn btn-default btn-xs' %>
+                  </div>
                 <% end %>
               <% end %>
             </td >
             <td><%= rental.show_groupname %></td>
             <td>
-              <%= link_to :video, rental.video_url.to_s, id: "video" %>
+              <%= link_to "閲覧", rental.video_url.to_s, id: "video", class: 'btn btn-default btn-xs' %>
               <%= flowplayer_for :video, '/flowplayer.swf' do |player|
                 player.playlist [{:autoplay => true,
                                   :autoBuffering => true}]
@@ -40,12 +44,12 @@
               end%></td>
             <td>
             <% if user_signed_in? && current_user.id == rental.user_id %>
-              <%= link_to '削除', "/rentals/#{rental.id}", method: :delete %>
-              <%= link_to '編集', "/rentals/#{rental.id}/edit", method: :get %>
+              <%= link_to '削除', "/rentals/#{rental.id}", method: :delete, class: 'btn btn-default btn-xs' %>
+              <%= link_to '編集', "/rentals/#{rental.id}/edit", method: :get, class: 'btn btn-default btn-xs' %>
             <% end %>
             </td>
           </tr>
         <% end %>
+      </tbody>
     </table>
   </div>
-</div>

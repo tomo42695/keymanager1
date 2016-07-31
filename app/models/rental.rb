@@ -1,7 +1,7 @@
 class Rental < ActiveRecord::Base
   belongs_to :user
   belongs_to :room
-  validates_presence_of :user_id, :room_id, :door_state
+  validates_presence_of :user_id, :room_id
   mount_uploader :video, VideoUploader
   def show_rent_time
     unless rent_time
@@ -13,7 +13,7 @@ class Rental < ActiveRecord::Base
 
   def show_return_time
     unless return_time
-      return "未返却"
+        return "使用中/未返却"
     else
       "#{return_time.strftime("%H:%M")}"
     end

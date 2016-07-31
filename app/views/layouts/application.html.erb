@@ -49,14 +49,7 @@
         <a class="navbar-brand" href="/">Keymanager</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-      <% if user_signed_in? %>
-        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-        <li><%= link_to "投稿する", new_rental_path %><li>
-      <% else %>
-        <li><%= link_to "ログイン", new_user_session_path %></li>
-        <li><%= link_to "新規登録", new_user_registration_path %></li>
-      <% end %>
-
+          <%= menu_helper %>
           </ul>
         </div>
       </div>
@@ -64,16 +57,13 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-9">
           <%= bootstrap_flash %>
           <%= yield %>
-        </div>
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2016</p>
+        <p>&copy; TIwai 2016</p>
       </footer>
-
     </div> <!-- /container -->
 
   </body>

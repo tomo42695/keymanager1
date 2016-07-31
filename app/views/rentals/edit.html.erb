@@ -2,30 +2,30 @@
   <%= form_for @rental do |f| %>
     <div style="margin: 8px 0">
       <%= f.label "部屋", style: { 'margin-right' => 8 } %>
-      <%= f.select :room_id, [["部室", "1"], ["大ホール", "2"], ["音1", "3"], ["音2", "4"], ["音3", "5"], ["音4", "6"], ["音5", "7"], ["音6", "8"], ["合A", "9"], ["合B", "10"], ["合C", "11"], ["合D", "12"], ["合E", "13"], ["集1", "14"], ["集2", "15"]] %>
+      <%= f.select :room_id, [["部室", "1"], ["大ホール", "2"], ["音1", "3"], ["音2", "4"], ["音3", "5"], ["音4", "6"], ["音5", "7"], ["音6", "8"], ["合A", "9"], ["合B", "10"], ["合C", "11"], ["合D", "12"], ["合E", "13"], ["集1", "14"], ["集2", "15"]], {}, class: "withripple", style: "border: 1px solid #ddd" %>
     </div>
 
       <div class="open_close">
 
         <div style="margin: 8px 0">
           <%= f.label "貸出時間", style: { 'margin-right' => 8 } %>
-          <%= f.time_field :rent_time %>
+          <%= f.time_field :rent_time, class: "btn btn-default withripple btn-sm" %>
         </div>
 
         <div style="margin: 8px 0">
           <%= f.label "返却・差し替え時間", style: { 'margin-right' => 8 } %>
-          <%= f.time_field :return_time %>
+          <%= f.time_field :return_time, class: "btn btn-default withripple btn-sm" %>
         </div>
 
         <div style="margin: 8px 0">
           <%= f.label "団体名（差し替えの場合のみ記入）", style: { 'margin-right' => 8 } %>
-          <%= f.text_field :groupname %>
+          <%= f.text_field :groupname, class: "btn btn-default withripple btn-sm" %>
         </div>
       </div>
 
       <div class="field" style="margin: 8px 0">
         <%= f.label "動画" %>
-        <%= f.file_field :video, :accept => 'video/*' %>
+        <%= f.file_field :video, :accept => 'video/*', class: "btn btn-default withripple btn-sm" %>
       </div>
 
     <%= f.submit "送信", class: "btn btn-primary withripple" %>
