@@ -52,5 +52,8 @@ group :development do
   gem 'therubyracer'
   gem 'carrierwave'
   gem 'flowplayer', git: 'git://github.com/scottdavis/flowplayer-gem.git'
+  group :production, :staging do
+    gem 'rails_12factor'
+  end
 end
 
